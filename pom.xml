@@ -11,6 +11,8 @@
         <module>loggy-webapp</module>
         <module>loggy-services</module>
         <module>loggy-data</module>
+        <module>loggy-model</module>
+        <module>loggy-spark</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -29,6 +31,26 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>loggy-model</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>loggy-services</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>loggy-spark</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.inject</groupId>
+                <artifactId>javax.inject</artifactId>
+                <version>1</version>
+            </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-core</artifactId>
@@ -88,6 +110,7 @@
         </dependencies>
     </dependencyManagement>
     <build>
+        <directory>../target/${project.artifactId}</directory>
         <pluginManagement>
             <plugins>
                 <plugin>
